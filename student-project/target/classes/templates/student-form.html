@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>student Form</title>
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        padding: 30px;
+        background-color: #f9f9f9;
+    }
+
+    h2 {
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    form {
+        background-color: #ffffff;
+        padding: 20px;
+        max-width: 500px;
+        margin: auto;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+        display: block;
+        margin-top: 15px;
+        font-weight: bold;
+    }
+
+    input[type="text"], input[type="email"] {
+        width: 100%;
+        padding: 10px;
+        margin-top: 6px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+
+    .btn-submit {
+        margin-top: 20px;
+        background-color: #28a745;
+        color: white;
+        padding: 10px 16px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        width: 100%;
+    }
+
+    .btn-submit:hover {
+        background-color: #218838;
+    }
+
+    .btn-back {
+        margin-top: 10px;
+        background-color: #6c757d;
+        color: white;
+        padding: 10px 16px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        width: 100%;
+    }
+
+    .btn-back:hover {
+        background-color: #5a6268;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Add / Update Employee</h2>
+
+<form th:action="@{/save}" th:object="${student}" method="post">
+  <input type="hidden" th:field="*{id}" />
+
+  <label for="roll">RollNumber</label>
+  <input type="text" th:field="*{rollnumber}" id="roll" required />
+
+  <label for="firstName">First Name</label>
+  <input type="text" th:field="*{firstname}" id="firstName" required />
+
+  <label for="lastName">Last Name</label>
+  <input type="text" th:field="*{lastname}" id="lastName" required />
+
+  <label for="email">Email</label>
+  <input type="email" th:field="*{email}" id="email" required />
+
+  <label for="phone">Phone</label>
+  <input type="number" th:field="*{phone}" id="phone" required />
+
+  <label for="age">Age</label>
+  <input type="number" th:field="*{age}" id="age" required />
+
+  <label for="action">Action</label>
+  <input type="text" th:field="*{actions}" id="action" required />
+
+  <button type="submit" class="btn-submit">Submit</button>
+
+  <a href="/" style="text-decoration: none;">
+    <button type="button" class="btn-back">Back</button>
+  </a>
+</form>
+
+</body>
+</html>
